@@ -1,6 +1,10 @@
+import DeckCard from "./Components/DeckCard";
 import { TableVisuals } from "./Components/TableVisuals";
+import { useDragStore } from "./stores/useDrag";
 
 export default function App () {
+    const { drag, endDrag } = useDragStore();
+
     return (
         <>
         {/* MAIN BACKGROUND */}
@@ -15,10 +19,18 @@ export default function App () {
                 items-center
                 relative
             "
+            onMouseMove={drag}
+            onMouseUp={endDrag}
         >
             {/* BORDA INTERIOR DA MESA */}
             <TableVisuals>
-                <div>TABLE CONTENT HERE</div>
+                <div className="w-[73%] h-full flex items-center gap-2.5">
+                    <DeckCard id={0} />
+                    <DeckCard id={1} />
+                    <DeckCard id={2} />
+                    <DeckCard id={3} />
+                    <DeckCard id={4} />
+                </div>
             </TableVisuals>
         </div>
         </>
