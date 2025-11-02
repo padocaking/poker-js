@@ -12,7 +12,7 @@ export function TableVisuals ({ children }: TableVisualsProps ) {
                 className="
                     absolute
                     translate-y-[5%]
-                    w-[52%]
+                    w-[50%]
                     h-6/8
                     bg-sky-950
                     rounded-[50%]
@@ -26,20 +26,20 @@ export function TableVisuals ({ children }: TableVisualsProps ) {
                     relative
                     z-10
                     bg-sky-800
-                    p-[3%]
-                    w-[52%]
+                    p-[2%_3%]
+                    w-[50%]
                     h-[75%]
                     rounded-[50%]
 
                     after:content-['']
                     after:absolute
-                    after:top-[0%]
-                    after:left-[5.7%]
-                    after:w-[88.7%]
+                    after:top-[-1.5%]
+                    after:left-[6%]
+                    after:w-[88%]
                     after:h-full
                     after:rounded-[50%]
                     after:border-sky-950
-                    after:border-t-25
+                    after:border-t-17
                     after:rotate-x-30
                     after:z-10
                     "
