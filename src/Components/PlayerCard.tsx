@@ -4,6 +4,11 @@ export default function PlayerCard() {
     const [openAction, setOpenAction] = useState(false);
     const [openHand, setOpenHand] = useState(true);
 
+    // TO DO:
+    // - LINEAR PROGRESSION FOR FONT-SIZE
+    // - DEALER BUTTON
+    // - POSITIONS ON BOARD BASED ON ID
+
     return (
         <>
         {/* CARD DO PLAYER */}
