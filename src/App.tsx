@@ -1,4 +1,5 @@
 import DeckCard from "./Components/DeckCard";
+import PlayerCard from "./Components/PlayerCard";
 import { TableVisuals } from "./Components/TableVisuals";
 import { useDragStore } from "./stores/useDrag";
 
@@ -31,6 +32,7 @@ export default function App () {
                     <DeckCard id={3} />
                     <DeckCard id={4} />
                 </div>
+                <PlayerCard />
             </TableVisuals>
         </div>
         </>
