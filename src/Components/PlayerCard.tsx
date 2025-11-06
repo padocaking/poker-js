@@ -1,8 +1,16 @@
 import { useState } from "react"
+import useGetWidth from "../Services/useGetWidth";
 
 export default function PlayerCard() {
     const [openAction, setOpenAction] = useState(false);
     const [openHand, setOpenHand] = useState(true);
+
+    let width = useGetWidth();
+
+    let titleFont =     width * 0.005 + 4.5;
+    let balanceFont =   width * 0.011 + 1.83;
+    let actionFont =    width * 0.008 + 4.17;
+    let handFont =      width * 0.005 + 5.5;
 
     // TO DO:
     // - LINEAR PROGRESSION FOR FONT-SIZE
@@ -75,7 +83,7 @@ export default function PlayerCard() {
                             flex
                             flex-col
                             items-center
-                            justify-center
+                            justify-around
                             leading-none
                             p-[5%]
                             gap-[5px]
@@ -84,8 +92,8 @@ export default function PlayerCard() {
                             shadow-[0px_10px_15px_-15px_black]
                         "
                     >
-                        <span className="text-[11px] text-lime-200">PADOCAKING</span>
-                        <span className="text-[17px] font-bold">$900</span>
+                        <span className="text-lime-200" style={{fontSize: titleFont}}>PADOCAKING</span>
+                        <span className="font-bold" style={{fontSize: balanceFont}}>$900</span>
                     </div>
 
                     {/* INFORMAÇÃO DA AÇÃO */}
@@ -96,7 +104,6 @@ export default function PlayerCard() {
                             items-center
                             justify-center
                             w-[85%]
-                            h-[${openAction ? '45%' : '0%'}]
                             absolute
                             top-[75%]
                             left-[5%]
@@ -106,8 +113,9 @@ export default function PlayerCard() {
                             pt-1
                             z-4
                         `}
+                        style={{height: `${openAction ? '45%' : '0%'}`}}
                     >
-                        <span className="text-[15px] text-lime-300 font-bold">
+                        <span className="text-lime-300 font-bold"  style={{fontSize: actionFont}}>
                             CHECK
                         </span>
                     </div>
@@ -120,7 +128,6 @@ export default function PlayerCard() {
                             items-center
                             justify-center
                             w-[75%]
-                            h-[${openHand ? '45%' : '0%'}]
                             absolute
                             top-[75%]
                             left-[10%]
@@ -129,8 +136,9 @@ export default function PlayerCard() {
                             shadow-2xl
                             z-4
                         `}
+                        style={{height: `${openHand ? '45%' : '0%'}`}}
                     >
-                        <span className="text-[12px] text-white font-bold">
+                        <span className="text-white font-bold"  style={{fontSize: handFont}}>
                             TWO PAIRS
                         </span>
                     </div>
