@@ -26,11 +26,11 @@ export default function App () {
             {/* BORDA INTERIOR DA MESA */}
             <TableVisuals>
                 <div className="w-[73%] h-full flex items-center gap-2.5">
-                    <DeckCard id={0} />
-                    <DeckCard id={1} />
-                    <DeckCard id={2} />
-                    <DeckCard id={3} />
-                    <DeckCard id={4} />
+                    <DeckCard rank="A" suit="♠" id={0} />
+                    <DeckCard rank="K" suit="♠" id={1} />
+                    <DeckCard rank="Q" suit="♠" id={2} />
+                    <DeckCard rank="J" suit="♠" id={3} />
+                    <DeckCard rank="10" suit="♠" id={4} />
                 </div>
                 <PlayerCard />
             </TableVisuals>

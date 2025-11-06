@@ -1,7 +1,7 @@
 import { useState } from "react"
 import useGetWidth from "../Services/useGetWidth";
 
-export default function PlayerCard() {
+export default function PlayerCard({ button = false }) {
     const [openAction, setOpenAction] = useState(false);
     const [openHand, setOpenHand] = useState(true);
 
@@ -13,7 +13,6 @@ export default function PlayerCard() {
     let handFont =      width * 0.005 + 5.5;
 
     // TO DO:
-    // - LINEAR PROGRESSION FOR FONT-SIZE
     // - DEALER BUTTON
     // - POSITIONS ON BOARD BASED ON ID
 
@@ -36,6 +35,32 @@ export default function PlayerCard() {
                     h-full
                 "
             >
+
+                {/* BOTÃO DO DEALER */}
+                <div
+                    className="
+                        absolute
+                        right-[-7%]
+                        top-[20%]
+                        z-10
+                        text-red-500
+                        bg-amber-50
+                        border-red-500
+                        rounded-full
+                        flex
+                        items-center
+                        justify-center
+                        p-[5%]
+                        w-[18%]
+                        h-[40%]
+                        font-bold
+                    "
+                    style={{
+                        borderWidth: `${handFont - 14}px`,
+                        fontSize: handFont
+                    }}
+                >D</div>
+
                 {/* IMAGEM DO AVATAR */}
                 <div
                     className="
