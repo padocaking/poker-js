@@ -33,7 +33,7 @@ export default function PlayerCard({ id = 0, button = false }) {
         },
 
         1: {
-            bottom: '16%',
+            bottom: '13%',
             top: '',
             left: '3%',
             right: ''
@@ -82,10 +82,10 @@ export default function PlayerCard({ id = 0, button = false }) {
                 <div
                     className="
                         absolute
-                        w-[80%]
+                        w-[90%]
                         h-full
                         top-[-100%]
-                        left-[17.5%]
+                        left-[10%]
                         flex
                         z-[-1]
                     "

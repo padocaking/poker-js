@@ -1,7 +1,7 @@
 import useGetWidth from "../Services/useGetWidth";
 import { useDragStore } from "../stores/useDrag";
 
-export default function DeckCard({ rank = 'A', suit = '♥', id = '', rotate = false, playerCard = false }) {
+export default function DeckCard({ rank = 'A', suit = '♥', id = '', rotate = false, playerCard = false, backCard = false }) {
     const { cardId, position, dragging, startDrag } = useDragStore();
     
     const color = (suit === "♥" || suit === "♦") ? 'text-red-500' : 'text-black';
@@ -34,7 +34,7 @@ export default function DeckCard({ rank = 'A', suit = '♥', id = '', rotate = f
             `}
             onMouseDown={(e) => startDrag(e, id)}
             style={{
-                rotate: `${rotate && !dragging ? `15deg` : `0deg`}`,
+                rotate: `${rotate && !dragging || rotate && dragging && cardId !== id ? `15deg` : `0deg`}`,
                 transform: `${cardId === id ? `translate(${position.x}px, ${position.y}px)` : null}`,
                 transition: "all 0.2s, transform 0.2s ease-out",
             }}
