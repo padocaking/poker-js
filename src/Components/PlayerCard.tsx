@@ -1,19 +1,54 @@
 import { useState } from "react"
 import useGetWidth from "../Services/useGetWidth";
+import DeckCard from "./DeckCard";
 
-export default function PlayerCard({ button = false }) {
+export default function PlayerCard({ id = 0, button = false }) {
+    // STATES DOS CARDS DE AÇÃO & MÃO FINAL
     const [openAction, setOpenAction] = useState(false);
     const [openHand, setOpenHand] = useState(true);
 
+    // CURRENT WIDTH GETTER
     let width = useGetWidth();
 
+    // VARIAVEIS COM TAMANHOS DE FONTES DINÂMICAS
     let titleFont =     width * 0.005 + 4.5;
     let balanceFont =   width * 0.011 + 1.83;
     let actionFont =    width * 0.008 + 4.17;
     let handFont =      width * 0.005 + 5.5;
 
+    // MAP DE ID -> POSIÇÃO NA MESA
+    type Pos = {
+        bottom: string,
+        top: string,
+        left: string,
+        right: string
+    }
+
+    const tablePos : Record<number, Pos> = {
+        0: {
+            bottom: '8%',
+            top: '',
+            left: '',
+            right: ''
+        },
+
+        1: {
+            bottom: '16%',
+            top: '',
+            left: '3%',
+            right: ''
+        },
+
+        2: {
+            bottom: '44%',
+            top: '',
+            left: '-7%',
+            right: ''
+        }
+    }
+
     // TO DO:
-    // - DEALER BUTTON
+    // - PLAYER CARDS
     // - POSITIONS ON BOARD BASED ON ID
 
     return (
@@ -25,7 +60,14 @@ export default function PlayerCard({ button = false }) {
                 h-[12%]
                 w-[22%]
                 absolute
+                z-20
             "
+            style={{
+                bottom: tablePos[id].bottom,
+                top: tablePos[id].top,
+                left: tablePos[id].left,
+                right: tablePos[id].right
+            }}
         >
             {/* DIV PRINCIPAL */}
             <div
@@ -35,6 +77,22 @@ export default function PlayerCard({ button = false }) {
                     h-full
                 "
             >
+
+                {/* CARTAS DOS JOGADORES */}
+                <div
+                    className="
+                        absolute
+                        w-[80%]
+                        h-full
+                        top-[-100%]
+                        left-[17.5%]
+                        flex
+                        z-[-1]
+                    "
+                >
+                    <DeckCard playerCard id="p0" />
+                    <DeckCard playerCard rotate id="p1" />
+                </div>
 
                 {/* BOTÃO DO DEALER */}
                 <div
@@ -47,7 +105,6 @@ export default function PlayerCard({ button = false }) {
                         bg-amber-50
                         border-red-500
                         rounded-full
-                        flex
                         items-center
                         justify-center
                         p-[5%]
@@ -56,10 +113,13 @@ export default function PlayerCard({ button = false }) {
                         font-bold
                     "
                     style={{
+                        display: `${button ? 'flex' : 'none'}`,
                         borderWidth: `${handFont - 14}px`,
                         fontSize: handFont
                     }}
-                >D</div>
+                >
+                    D
+                </div>
 
                 {/* IMAGEM DO AVATAR */}
                 <div
@@ -104,7 +164,7 @@ export default function PlayerCard({ button = false }) {
                     <div
                         className="
                             bg-sky-700
-                            h-[80%]
+                            h-[72%]
                             flex
                             flex-col
                             items-center
@@ -130,7 +190,7 @@ export default function PlayerCard({ button = false }) {
                             justify-center
                             w-[85%]
                             absolute
-                            top-[75%]
+                            top-[65%]
                             left-[5%]
                             rounded-[0_0_5px_5px]
                             overflow-hidden
@@ -154,7 +214,7 @@ export default function PlayerCard({ button = false }) {
                             justify-center
                             w-[75%]
                             absolute
-                            top-[75%]
+                            top-[67%]
                             left-[10%]
                             rounded-[0_0_5px_5px]
                             overflow-hidden
