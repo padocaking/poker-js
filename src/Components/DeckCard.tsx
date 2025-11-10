@@ -1,9 +1,11 @@
 import useGetWidth from "../Services/useGetWidth";
 import { useDragStore } from "../stores/useDrag";
 
-export default function DeckCard({ rank = 'A', suit = '♥', id = 0 }) {
+export default function DeckCard({ rank = 'A', suit = '♥', id = '', rotate = false, playerCard = false, backCard = false }) {
     const { cardId, position, dragging, startDrag } = useDragStore();
+    
     const color = (suit === "♥" || suit === "♦") ? 'text-red-500' : 'text-black';
+
     let width = useGetWidth();
     
     // TAMANHOS PROPORCIONAIS AO WIDTH
@@ -17,19 +19,22 @@ export default function DeckCard({ rank = 'A', suit = '♥', id = 0 }) {
                 cursor-pointer
                 relative
                 bg-gray-50
-                w-[18%]
-                h-[25%]
+                w-${playerCard ? '[100%]' : '[18%]'}
+                h-${playerCard ? '[120%]' : '[25%]'}
                 flex
                 flex-col
                 select-none
                 rounded-xl
                 shadow-xl
+                ${rotate ? 'left-[-10%]' : null}
+                ${rotate ? 'top-[15%]' : null}
                 ${!dragging ? 'hover:scale-95' : null}
                 ${dragging && cardId === id ? 'scale-105' : null}
                 ${dragging && cardId === id ? 'z-999' : 'z-100'}
             `}
             onMouseDown={(e) => startDrag(e, id)}
             style={{
+                rotate: `${rotate && !dragging || rotate && dragging && cardId !== id ? `15deg` : `0deg`}`,
                 transform: `${cardId === id ? `translate(${position.x}px, ${position.y}px)` : null}`,
                 transition: "all 0.2s, transform 0.2s ease-out",
             }}

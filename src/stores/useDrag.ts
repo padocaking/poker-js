@@ -6,18 +6,18 @@ interface Position {
 }
 
 interface DragState {
-    cardId: number,
+    cardId: string,
     startPos: Position;
     position: Position;
     dragging: boolean;
 
-    startDrag: (e: React.MouseEvent, id: number) => void;
+    startDrag: (e: React.MouseEvent, id: string) => void;
     drag: (e: React.MouseEvent) => void;
     endDrag: (e: React.MouseEvent) => void;
 }
 
 export const useDragStore = create<DragState>((set, get) => ({
-    cardId: 0,
+    cardId: '0',
     startPos: { x:0, y:0},
     position: { x:0, y:0 },
     dragging: false,
