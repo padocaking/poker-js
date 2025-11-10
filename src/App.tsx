@@ -52,6 +52,11 @@ export default function App () {
                     <PlayerCard id={0} />
                     <PlayerCard id={1} button />
                     <PlayerCard id={2} />
+                    <PlayerCard id={3} />
+                    <PlayerCard id={4} />
+                    <PlayerCard id={5} />
+                    <PlayerCard id={6} />
+                    <PlayerCard id={7} />
                 </TableVisuals>
             </div>
         </div>

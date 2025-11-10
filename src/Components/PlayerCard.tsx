@@ -26,9 +26,9 @@ export default function PlayerCard({ id = 0, button = false }) {
 
     const tablePos : Record<number, Pos> = {
         0: {
-            bottom: '8%',
+            bottom: '4%',
             top: '',
-            left: '',
+            left: '41%',
             right: ''
         },
 
@@ -44,7 +44,42 @@ export default function PlayerCard({ id = 0, button = false }) {
             top: '',
             left: '-7%',
             right: ''
-        }
+        },
+
+        3: {
+            bottom: '',
+            top: '13%',
+            left: '3%',
+            right: ''
+        },
+
+        4: {
+            bottom: '',
+            top: '4%',
+            left: '41%',
+            right: ''
+        },
+
+        5: {
+            bottom: '',
+            top: '13%',
+            left: '',
+            right: '0%'
+        },
+
+        6: {
+            bottom: '44%',
+            top: '',
+            left: '',
+            right: '-13%'
+        },
+
+        7: {
+            bottom: '13%',
+            top: '',
+            left: '',
+            right: '0%'
+        },
     }
 
     // TO DO:
@@ -82,16 +117,16 @@ export default function PlayerCard({ id = 0, button = false }) {
                 <div
                     className="
                         absolute
-                        w-[90%]
-                        h-full
-                        top-[-100%]
+                        w-[80%]
+                        h-[100%]
+                        top-[-80%]
                         left-[10%]
                         flex
                         z-[-1]
                     "
                 >
-                    <DeckCard playerCard id="p0" />
-                    <DeckCard playerCard rotate id="p1" />
+                    <DeckCard playerCard id="p0" backCard={true} />
+                    <DeckCard playerCard rotate id="p1" backCard={true} />
                 </div>
 
                 {/* BOTÃO DO DEALER */}
