@@ -41,8 +41,8 @@ export default function DeckCard({
                 items-center
                 justify-center
                 select-none
-                rounded-xl
                 shadow-xl
+                rounded-[10%]
                 ${rotate ? 'left-[-10%]' : null}
                 ${rotate ? 'top-[15%]' : null}
                 ${!dragging ? 'hover:scale-95' : null}
@@ -55,7 +55,7 @@ export default function DeckCard({
                 transform: `${cardId === id ? `translate(${position.x}px, ${position.y}px)` : null}`,
                 transition: "all 0.2s, transform 0.2s ease-out",
                 width: `${playerCard ? '100%' : '18%'}`,
-                height: `${playerCard ? '120%' : '25%'}`
+                height: `${playerCard ? '120%' : '25%'}`,
             }}
         >
             {/* CANTO SUPERIOR ESQUERDO */}
@@ -149,7 +149,7 @@ export default function DeckCard({
                     h-[94%]
                     bg-red-600
                     overflow-hidden
-                    rounded-xl
+                    rounded-[10%]
                 "
                 style={{
                     display: !backCard ? 'none' : 'flex',
