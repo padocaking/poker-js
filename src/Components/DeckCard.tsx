@@ -36,8 +36,6 @@ export default function DeckCard({
                 cursor-pointer
                 relative
                 bg-gray-50
-                w-${playerCard ? '[100%]' : '[18%]'}
-                h-${playerCard ? '[120%]' : '[25%]'}
                 flex
                 flex-col
                 items-center
@@ -56,6 +54,8 @@ export default function DeckCard({
                 rotate: `${rotate && !dragging || rotate && dragging && cardId !== id ? `15deg` : `0deg`}`,
                 transform: `${cardId === id ? `translate(${position.x}px, ${position.y}px)` : null}`,
                 transition: "all 0.2s, transform 0.2s ease-out",
+                width: `${playerCard ? '100%' : '18%'}`,
+                height: `${playerCard ? '120%' : '25%'}`
             }}
         >
             {/* CANTO SUPERIOR ESQUERDO */}
