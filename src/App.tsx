@@ -12,7 +12,7 @@ export default function App () {
 
     return (
         <>
-        {/* "BODY" */}
+        {/* "BODY" (COM IMAGEM BACKGROUND) */}
         <div
             className="
                 flex
@@ -22,7 +22,15 @@ export default function App () {
                 h-screen
                 bg-[url('https://static.vecteezy.com/system/resources/thumbnails/006/029/969/small_2x/blue-sky-skyscape-background-concept-free-vector.jpg')]
                 bg-cover
+                overflow-hidden
             "
+            style={{
+                backgroundColor: '#21462b',
+                opacity: '1',
+                backgroundImage:  'linear-gradient(#173b20 2.5px, transparent 2.5px), linear-gradient(to right, #173b20 2.5px, #21462b 2.5px)',
+                backgroundSize: '3.5% 7%',
+                boxShadow: 'rgba(0, 0, 0, 0.4) 0px 0px 200px 0px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset',
+            }}
         >
         {/* MAIN BACKGROUND */}
             <div
