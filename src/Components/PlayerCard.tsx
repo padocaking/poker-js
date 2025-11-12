@@ -118,7 +118,7 @@ export default function PlayerCard({ id = 0, button = false }) {
                     className="
                         absolute
                         w-[80%]
-                        h-[100%]
+                        h-full
                         top-[-80%]
                         left-[10%]
                         flex

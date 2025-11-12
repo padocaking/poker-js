@@ -56,7 +56,7 @@ export function TableVisuals ({ children }: TableVisualsProps ) {
                         p-[4%_3%_3%_3%]
                     "
                 >   
-                    {/* MESA INTERNA */}
+                    {/* MESA INTERNA + TRAÇO BRANCO */}
                     <div
                         className="
                             bg-[#85ac86]
