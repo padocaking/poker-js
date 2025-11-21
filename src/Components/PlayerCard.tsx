@@ -2,7 +2,15 @@ import { useState } from "react"
 import useGetWidth from "../Services/useGetWidth";
 import DeckCard from "./DeckCard";
 
-export default function PlayerCard({ id = 0, button = false }) {
+type PlayerCardProps = {
+    id: number,
+    img: string,
+    name: string,
+    balance: number,
+    button: boolean
+}
+
+export default function PlayerCard({ id, img, name, balance, button} : PlayerCardProps) {
     // STATES DOS CARDS DE AÇÃO & MÃO FINAL
     const [openAction, setOpenAction] = useState(false);
     const [openHand, setOpenHand] = useState(true);
@@ -104,13 +112,17 @@ export default function PlayerCard({ id = 0, button = false }) {
                 right: tablePos[id].right
             }}
         >
-            {/* DIV PRINCIPAL */}
+
+            {/* DIV DO JOGADOR PRINCIPAL */}
             <div
                 className="
                     relative
                     w-full
                     h-full
                 "
+                style={{
+                    display: '',
+                }}
             >
 
                 {/* CARTAS DOS JOGADORES */}
@@ -125,8 +137,8 @@ export default function PlayerCard({ id = 0, button = false }) {
                         z-[-1]
                     "
                 >
-                    <DeckCard playerCard id="p0" backCard={true} />
-                    <DeckCard playerCard rotate id="p1" backCard={true} />
+                    <DeckCard playerCard id={'p'+id} backCard={true} rank={""} suit={""} rotate={false} />
+                    <DeckCard playerCard rotate id={'p'+id+'b'} backCard={true} rank={""} suit={""} />
                 </div>
 
                 {/* BOTÃO DO DEALER */}
@@ -174,7 +186,7 @@ export default function PlayerCard({ id = 0, button = false }) {
                     "
                 >
                     <img
-                        src="https://f4.bcbits.com/img/a4056940133_10.jpg"
+                        src={img}
                         alt="Avatar"
                         srcSet=""
                         className="
@@ -212,8 +224,8 @@ export default function PlayerCard({ id = 0, button = false }) {
                             shadow-[0px_10px_15px_-15px_black]
                         "
                     >
-                        <span className="text-lime-200" style={{fontSize: titleFont}}>PADOCAKING</span>
-                        <span className="font-bold" style={{fontSize: balanceFont}}>$900</span>
+                        <span className="text-lime-200" style={{fontSize: titleFont}}>{name}</span>
+                        <span className="font-bold" style={{fontSize: balanceFont}}>${balance}</span>
                     </div>
 
                     {/* INFORMAÇÃO DA AÇÃO */}

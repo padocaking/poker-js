@@ -3,13 +3,34 @@ import PlayerCard from "./Components/PlayerCard";
 import { TableVisuals } from "./Components/TableVisuals";
 import useGetWidth from "./Services/useGetWidth";
 import { useDragStore } from "./stores/useDrag";
+import game, { Game } from "./Script/Game";
+import AddPlayerCard from "./Components/AddPlayerCard";
+
+
+const RenderPlayers = () => {
+    return [...Array(8)].map((_, i) => {
+        const player = game.players.find(p => p.id == i);
+
+        return player ? (
+            <PlayerCard
+                key={i}
+                id={player.id}
+                button={player.id == 0}
+                img={player.image}
+                name={player.name}
+                balance={player.balance}
+            />
+        ) : (
+            <AddPlayerCard key={i} id={i} />
+        )
+    })
+};
 
 export default function App () {
     const { drag, endDrag } = useDragStore();
 
     let width = useGetWidth();
-    console.log(width)
-
+    
     return (
         <>
         {/* "BODY" (COM IMAGEM BACKGROUND) */}
@@ -42,7 +63,7 @@ export default function App () {
                     relative
                 `}
                 style={{
-                    height: `${width/2}px`
+                    height: `${width/2.15}px`
                 }}
 
                 onMouseMove={drag}
@@ -57,14 +78,7 @@ export default function App () {
                         <DeckCard rank="J" suit="♠" id={'3'} rotate={false} playerCard={false} backCard={false} />
                         <DeckCard rank="10" suit="♠" id={'4'} rotate={false} playerCard={false} backCard={false} />
                     </div>
-                    <PlayerCard id={0} />
-                    <PlayerCard id={1} button />
-                    <PlayerCard id={2} />
-                    <PlayerCard id={3} />
-                    <PlayerCard id={4} />
-                    <PlayerCard id={5} />
-                    <PlayerCard id={6} />
-                    <PlayerCard id={7} />
+                    <RenderPlayers />
                 </TableVisuals>
             </div>
         </div>
